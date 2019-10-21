@@ -26,6 +26,11 @@ export default new Router({
       name: 'wode',
       component: () => import('../components/wode/wode'),
     },
+    {
+      path:'/search',
+      name:'search',
+      component:()=>import('../components/common/Search')
+    },
 
   ]
 })
