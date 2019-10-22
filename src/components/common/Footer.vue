@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="footer">
     <mt-tabbar v-model="selected">
       <mt-tab-item id="首页">
         <img slot="icon" src="../../assets/logo.png">
@@ -46,5 +46,10 @@
 </script>
 
 <style scoped>
-
+.footer{
+  height: 50px;
+  position:fixed;
+  bottom:0;
+  width: 100%;
+}
 </style>

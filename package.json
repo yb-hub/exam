@@ -14,11 +14,16 @@
       "transform": "cube-ui/lib/${member}",
       "kebabCase": true,
       "style": {
-        "ignore": ["create-api", "better-scroll", "locale"]
+        "ignore": [
+          "create-api",
+          "better-scroll",
+          "locale"
+        ]
       }
     }
   },
   "dependencies": {
+    "better-scroll": "^1.15.2",
     "cube-ui": "^1.12.32",
     "mint-ui": "^2.2.13",
     "vue": "^2.5.2",

@@ -1,5 +1,5 @@
 <template>
-  <div id="header">
+  <div class="header">
     <div class="left">
       <slot name="left"></slot>
     </div>
@@ -34,26 +34,28 @@
 </script>
 
 <style scoped>
-  #header {
-    height: 50px;
+  .header {
+    height: 44px;
     background-color: lightseagreen;
     text-align: center;
-    line-height: 50px;
-    font-size: 18px;
+    line-height: 44px;
+    font-size: 14px;
     color: white;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:999;
+  }
+  .title{
+    flex:1
+  }
+  .left,.right{
+    width:40px;
+
   }
 
-  #header .register {
-    margin-top: 10px;
-    font-size: 12px;
-  }
-  .left{
-    margin-left: 10px;
-  }
-  .right{
-    margin-right: 10px;
-  }
 </style>
