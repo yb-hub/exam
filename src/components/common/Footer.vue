@@ -47,7 +47,6 @@
 
 <style scoped>
 .footer{
-  height: 50px;
   position:fixed;
   bottom:0;
   width: 100%;

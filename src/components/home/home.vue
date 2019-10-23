@@ -12,34 +12,35 @@
         right
       </div>
     </Header>
-  <div class="wrapper">
-    <div>
-      <mt-swipe :auto="4000" style="height: 200px;">
-        <mt-swipe-item><img src="@/assets/logo.png" alt="logo"></mt-swipe-item>
-        <mt-swipe-item><img src="@/assets/logo.png" alt="logo"></mt-swipe-item>
-        <mt-swipe-item><img src="@/assets/logo.png" alt="logo"></mt-swipe-item>
-      </mt-swipe>
-      <List></List>
-    </div>
-  </div>
+    <Scroll class="wrapper">
+      <div>
+        <mt-swipe :auto="4000" style="height: 200px;">
+          <mt-swipe-item><img src="@/assets/logo.png" alt="logo"></mt-swipe-item>
+          <mt-swipe-item><img src="@/assets/logo.png" alt="logo"></mt-swipe-item>
+          <mt-swipe-item><img src="@/assets/logo.png" alt="logo"></mt-swipe-item>
+        </mt-swipe>
+        <List></List>
+      </div>
+    </Scroll>
 </div>
 </template>
 
 <script>
   import Header from '../common/Header'
   import List from './List'
-  import BScroll from 'better-scroll'
+  // import BScroll from 'better-scroll'
+  import Scroll from "../common/Scroll"
 
   export default {
     name: "home",
     data(){
       return{
-        scroll:null,
       }
     },
     components:{
       Header,
       List,
+      Scroll,
     },
     methods:{
       leftClick(){
@@ -50,34 +51,22 @@
     //   console.log("create =======")
     //   this.$store.dispatch("changeHeaderTitle","首页")
     // }
-    mounted(){
-      this.scroll =  new BScroll(document.querySelector('.wrapper'),{
-        probeType:3,
-        pullUpLoad:true
-      })
-      //使用probeType属性，监听滚动位置，0，1不监听，2监听（惯性的不监听），3惯性的也监听
-      this.scroll.on('scroll',(position)=>{
-        console.log(position);
-      })
-
-      this.scroll.on('pullingUp',()=>{
-        console.log("上啦加载更多");
-        this.scroll.finishPullUp();  //只有这里完成上拉加载，才能进行多次的上拉加载操作，否则只能加载一次
-      })
-
-
-    }
   }
 </script>
 
 <style scoped>
   @import "../../assets/search/iconfont.css";
   #home{
-    padding-top:44px;
+    /*padding-top:44px;*/
+    /*position: relative;*/
+    height: 100vh;
   }
   .wrapper{
-    height:600px;
-    background-color: #ccc;
+    position: absolute;
+    top:44px;
+    bottom: 55px;
+    left: 0px;
+    right: 0px;
     overflow:hidden;
   }
 </style>
