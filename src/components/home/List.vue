@@ -456,20 +456,21 @@
           console.log("index:"+index);
           console.log(this.showList);
           if(this.showList[index] != undefined){
-            this.showList.splice(index,1,!this.showList[index])
+            this.$set(this.showList,index,!this.showList[index]);
+            //this.showList.splice(index,1,!this.showList[index])
           }else{
-            this.showList.splice(index,1,true)
+            this.$set(this.showList,index,true)
+            //this.showList.splice(index,1,true)
+            //初始化showList2中的当前索引的数组
+            this.$set(this.showList2,index,[])
           }
           console.log(this.showList[index]);
         },
         show2(index,index2){
-          // console.log("index:"+index+"index2:"+index2);
-          // console.log(this.showList2);
-          if(this.showList2[index] != undefined){
-            this.showList2[index].splice(index2,1, this.showList2[index][index2]!=undefined ? !this.showList2[index][index2]:true);
+          if(this.showList2[index][index2]==undefined){
+            this.$set(this.showList2[index],index2,true)
           }else{
-            this.showList2[index] = [];
-            this.showList2[index].splice(index2,1,true);
+            this.$set(this.showList2[index],index2,!this.showList2[index][index2])
           }
         }
       }
