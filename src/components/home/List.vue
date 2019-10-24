@@ -1,15 +1,29 @@
 <template>
   <div id="list">
     <div v-for="(category,index) in categorys" :key="category.id">
-      <div class="firstItem">
-        <span :class="showList[index] ? 'iconfont icon-arrow-down-' : 'iconfont icon-arrow-right-'"></span><span @click="show(index)">{{category.name}}</span><span class="iconfont icon-dingdan"></span>
+      <div class="first-item">
+        <span @click="show(index)"
+              :class="showList[index] ? 'iconfont icon-arrow-down-' : 'iconfont icon-arrow-right-'"></span>
+        <span @click="show(index)">{{category.name}}</span>
+        <span class="iconfont icon-dingdan first-item-editor" @click="startTest(category.id)"></span>
       </div>
+      <!--<ListItem :isShow="this.$store.state.showList[index]" :index="index"></ListItem>-->
       <div v-if="showList[index]">
         <div v-for="(son,index2) in category.sons" :key="son.id">
-          <span :class="showList2[index] != undefined&&showList2[index][index2] ? 'iconfont icon-arrow-down-' : 'iconfont icon-arrow-right-'" @click="show2(index,index2)"> {{son.name}}</span><span class="iconfont icon-dingdan"></span>
+          <div class="second-item">
+            <span @click="show2(index,index2)"
+                  :class="showList2[index] != undefined&&showList2[index][index2] ? 'iconfont icon-arrow-down-' : 'iconfont icon-arrow-right-'"/>
+            <span @click="show2(index,index2)"> {{son.name}}</span>
+            <span class="iconfont icon-dingdan second-item-editor"></span>
+          </div>
+          <!--<ListItem :isShow="this.$store.state.showList2[index] != undefined&&this.$store.state.showList2[index][index2]"></ListItem>-->
           <div v-if="showList2[index] != undefined ? showList2[index][index2] : false">
             <div v-for="(grandSon,index3) in son.grandSon" :key="grandSon.id">
-              <span>{{grandSon.name}}</span><span class="iconfont icon-dingdan"></span>
+              <div class="third-item">
+                <span class="iconfont icon-dingdan"></span>
+                <span>{{grandSon.name}}</span>
+                <span class="iconfont icon-dingdan third-item-editor"></span>
+              </div>
             </div>
           </div>
         </div>
@@ -19,9 +33,13 @@
 </template>
 
 <script>
+  import ListItem from './ListItem'
 
   export default {
     name: "List",
+    components: {
+      ListItem,
+    },
     data() {
       return {
         showList: [],
@@ -471,7 +489,10 @@
         } else {
           this.$set(this.showList2[index], index2, !this.showList2[index][index2])
         }
-      }
+      },
+      startTest(categroyId){
+        this.$router.push("/test")
+      },
     }
   }
 </script>
@@ -481,8 +502,26 @@
   @import "../../assets/list/right/iconfont.css";
   @import "../../assets/list/editor/iconfont.css";
 
-#list{
-  text-align: left;
-  padding-left: 10px;
-}
+  #list {
+    text-align: left;
+    padding-left: 10px;
+  }
+
+  .first-item,.second-item,.third-item{
+    height: 35px;
+    line-height: 35px;
+  }
+
+  .first-item .first-item-editor,.second-item .second-item-editor,.third-item .third-item-editor {
+    float: right;
+    margin-right: 20px;
+  }
+
+  .second-item{
+    padding-left:20px;
+  }
+
+  .third-item{
+    padding-left: 40px;
+  }
 </style>

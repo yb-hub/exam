@@ -53,9 +53,12 @@
   .title{
     flex:1
   }
-  .left,.right{
+  .left{
     width:40px;
 
+  }
+  .right{
+    width: 60px;
   }
 
 </style>

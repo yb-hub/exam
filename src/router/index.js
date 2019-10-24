@@ -8,7 +8,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Home',
+      name: 'home',
       component: () => import('../components/home/home'),
     },
     {
@@ -30,6 +30,11 @@ export default new Router({
       path:'/search',
       name:'search',
       component:()=>import('../components/common/Search')
+    },
+    {
+      path:'/test',
+      name:'test',
+      component:()=>import('../components/test/Test')
     },
 
   ]
