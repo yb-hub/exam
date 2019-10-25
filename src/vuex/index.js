@@ -6,8 +6,8 @@ Vue.use(Vuex)
 
 const state = {
   headerTitle: "",
-  showList: [],
-  showList2: []
+  showModal:false,
+
 }
 
 const getter = {}
@@ -17,36 +17,24 @@ const mutations = {
     console.log("mutations =====" + headerTitle)
     state.headerTitle = headerTitle
   },
-  show(state, index) {
-    if (this.state.showList[index] != undefined) {
-      this.$set(this.state.showList, index, !this.state.showList[index]);
-      //this.showList.splice(index,1,!this.showList[index])
-    } else {
-      this.$set(this.state.showList, index, true)
-      //this.showList.splice(index,1,true)
-      //初始化showList2中的当前索引的数组
-      this.$set(this.state.showList2, index, [])
-    }
+  closeModal(state){
+    state.showModal = false;
   },
-  show2(state,index,index2){
-    if (this.state.showList2[index][index2] == undefined) {
-      this.$set(this.state.showList2[index], index2, true)
-    } else {
-      this.$set(this.state.showList2[index], index2, !this.state.showList2[index][index2])
-    }
+  openModal(state){
+    state.showModal = true;
   }
 }
 
 const actions = {
-  show(context, index) {
-    context.commit("show", index)
-  },
-  show2(context, index,index2) {
-    context.commit("show2", index,index2)
-  },
   changeHeaderTitle(context, headerTitle) {
     console.log("actions =====" + headerTitle)
     context.commit("changeHeaderTitle", headerTitle)
+  },
+  closeModal(context){
+    context.commit("closeModal")
+  },
+  openModal(context){
+    context.commit("openModal")
   }
 }
 

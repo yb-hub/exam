@@ -58,7 +58,7 @@
 
   }
   .right{
-    width: 60px;
+    width: 40px;
   }
 
 </style>

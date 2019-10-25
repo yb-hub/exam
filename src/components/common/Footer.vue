@@ -9,9 +9,9 @@
         <img slot="icon" src="../../assets/logo.png">
         课程
       </mt-tab-item>
-      <mt-tab-item id="我的">
+      <mt-tab-item id="考试">
         <img slot="icon" src="../../assets/logo.png">
-        我的
+        考试
       </mt-tab-item>
     </mt-tabbar>
   </div>
@@ -36,8 +36,8 @@
             case '课程':
               this.$router.push('/kechen');
               break;
-            case '我的':
-              this.$router.push('/wode');
+            case '考试':
+              this.$router.push('/exam');
               break;
           }
         }

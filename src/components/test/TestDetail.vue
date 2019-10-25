@@ -3,7 +3,7 @@
               :continuous=false
               :showIndicators=false
     class="banner">
-      <mt-swipe-item v-for="question in questions" :key="question.id">
+      <mt-swipe-item v-for="(question,index) in questions" :key="question.id">
         <div>
           <span>(单选)</span>
           <span class="title">{{question.title}}</span>
@@ -16,6 +16,7 @@
               {{value}}
             </div>
           </div>
+          <button v-if="questions.length-1 == index" @click="submitTest">提交</button>
         </div>
       </mt-swipe-item>
     </mt-swipe>
@@ -83,6 +84,9 @@
           }
         }
         console.log(this.answer);
+      },
+      submitTest(){
+        alert("Are you sure")
       }
     },
   }
@@ -98,6 +102,6 @@
   }
   
   .banner{
-    height: 100%;
+    height: calc(100vh - 100px);
   }
 </style>

@@ -36,7 +36,7 @@
 </script>
 
 <style scoped>
-.content{
-  height: 100%;
-}
+/*.content{*/
+  /*height: 100%;*/
+/*}*/
 </style>

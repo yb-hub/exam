@@ -22,9 +22,25 @@ export default new Router({
       component: () => import('../components/kechen/kechen'),
     },
     {
-      path: '/wode',
-      name: 'wode',
-      component: () => import('../components/wode/wode'),
+      path: '/exam',
+      name: 'exam',
+      component: () => import('../components/exam/exam'),
+      children:[
+        {
+          path:'',
+          component:()=>import('../components/exam/ExamList')
+        },
+        {
+          path:'ExamIntro',
+          name:'examIntro',
+          component:()=>import('../components/exam/ExamIntro')
+        },
+        {
+          path:'ExamDetail',
+          name:"examDetail",
+          component:()=>import('../components/exam/ExamDetail')
+        }
+      ]
     },
     {
       path:'/search',
