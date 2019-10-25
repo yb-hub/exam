@@ -1,30 +1,31 @@
 <template>
-  <mt-swipe :auto="0" style="height: 400px;background-color: #fff;"
-            :continuous=false
-            :showIndicators=false>
-    <mt-swipe-item v-for="question in questions" :key="question.id">
-      <div>
-        <span>(单选)</span>
-        <span class="title">{{question.title}}</span>
-        <div class="options">
-          <div v-for="(value,key,index) in question.options" :key="index"
-               @click="selectOption(index,key,question.isSingle)" :class="{active:answer.indexOf(key)!=-1}">
-            <span v-if="key=='A'" class="iconfont icon-icon-class-a"></span>
-            <span v-if="key=='B'" class="iconfont icon-icon-class-b"></span>
-            <span v-if="key=='C'" class="iconfont icon-icon-class-c"></span>
-            {{value}}
-            <div>aaaaaaaaaaaaaaaaa</div>
+    <mt-swipe :auto="0"
+              :continuous=false
+              :showIndicators=false
+    class="banner">
+      <mt-swipe-item v-for="question in questions" :key="question.id">
+        <div>
+          <span>(单选)</span>
+          <span class="title">{{question.title}}</span>
+          <div class="options">
+            <div v-for="(value,key,index) in question.options" :key="index"
+                 @click="selectOption(index,key,question.isSingle)" :class="{active:answer.indexOf(key)!=-1}">
+              <span v-if="key=='A'" class="iconfont icon-icon-class-a"></span>
+              <span v-if="key=='B'" class="iconfont icon-icon-class-b"></span>
+              <span v-if="key=='C'" class="iconfont icon-icon-class-c"></span>
+              {{value}}
+            </div>
           </div>
         </div>
-      </div>
-    </mt-swipe-item>
-  </mt-swipe>
-
+      </mt-swipe-item>
+    </mt-swipe>
 </template>
 
 <script>
   export default {
     name: "TestDetail",
+    components:{
+    },
     data() {
       return {
         questions: [
@@ -84,7 +85,6 @@
         console.log(this.answer);
       }
     },
-    components: {},
   }
 </script>
 
@@ -92,8 +92,12 @@
   @import "../../assets/test/options/A/iconfont.css";
   @import "../../assets/test/options/B/iconfont.css";
   @import "../../assets/test/options/C/iconfont.css";
-
-  .active {
+  
+  .active{
     background-color: #ccc;
+  }
+  
+  .banner{
+    height: 100%;
   }
 </style>

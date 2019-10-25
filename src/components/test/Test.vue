@@ -10,12 +10,15 @@
         <span class="iconfont icon-dingdan"></span>
       </div>
     </Header>
-    <TestDetail></TestDetail>
+    <Scroll class="wrapper">
+      <TestDetail></TestDetail>
+    </Scroll>
   </div>
 </template>
 
 <script>
   import Header from "../common/Header"
+  import Scroll from "../common/Scroll"
 
   import TestDetail from "./TestDetail"
 
@@ -23,7 +26,7 @@
     name: "Test",
     components: {
       Header,
-
+      Scroll,
       TestDetail,
     },
   }
@@ -33,7 +36,16 @@
   @import "../../assets/test/back/iconfont.css";
   @import "../../assets/list/editor/iconfont.css";
 
-  #test{
-    padding-top:44px;
+  #test {
+    padding-top: 44px;
   }
+  .wrapper{
+    position: absolute;
+    top:44px;
+    bottom: 55px;
+    left: 0px;
+    right: 0px;
+    overflow:hidden;
+  }
+
 </style>
