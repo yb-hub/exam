@@ -1,10 +1,14 @@
 <template>
   <div id="exam-detail">
     <Header header-title="好好考试，别偷看">
+      <div slot="left" style="width:90px">
+        <div><span class="iconfont icon-loudou" style="color:red"></span>时间：{{limitTime}}</div>
+      </div>
       <div slot="right"  @click="checkQuestionDetail">
-        答题情况
+        <span class="iconfont icon-chakan"></span>
       </div>
     </Header>
+
     <Question :question="questions[currentQuestion]" style="height: 200px">
     </Question>
     <button v-if="currentQuestion!=0" @click="before">上一题</button>
@@ -49,10 +53,17 @@
             id:4,
             content:"这是第4题"
           },
-        ]
+        ],
+        limitTime:120
       }
     },
+    created(){
+      this.time = setInterval(this.timer,1000*60)
+    },
     methods:{
+      timer(){
+        this.limitTime -=1;
+      },
       before(){
         this.currentQuestion -=1;
       },
@@ -67,5 +78,6 @@
 </script>
 
 <style scoped>
-
+@import "../../assets/timer/countDown/iconfont.css";
+@import "../../assets/check/iconfont.css";
 </style>

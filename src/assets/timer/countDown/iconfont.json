@@ -1,0 +1,16 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "3881890",
+      "name": "漏斗,倒计时",
+      "font_class": "loudou",
+      "unicode": "e76d",
+      "unicode_decimal": 59245
+    }
+  ]
+}

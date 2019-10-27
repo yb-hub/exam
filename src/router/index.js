@@ -17,9 +17,9 @@ export default new Router({
       component: () => import('../components/home/home'),
     },
     {
-      path: '/kechen',
-      name: 'kechen',
-      component: () => import('../components/kechen/kechen'),
+      path: '/wode',
+      name: 'wode',
+      component: () => import('../components/wode/wode'),
     },
     {
       path: '/exam',
