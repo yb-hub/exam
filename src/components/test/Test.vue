@@ -85,11 +85,11 @@
 </script>
 
 <style scoped>
-  @import "../../assets/test/back/iconfont.css";
+  @import "../../assets/icon/back/iconfont.css";
   @import "../../assets/list/editor/iconfont.css";
 
   /*#test {*/
-    /*height:100vh;*/
+   /*height: 100%;*/
   /*}*/
   .wrapper{
     position: absolute;

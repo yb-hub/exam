@@ -1,13 +1,16 @@
 <template>
-  <form action="" target="frameFile">
-    <mt-search
-      v-model="keyValue"
-      cancel-text="取消"
-      placeholder="搜索"
-      @keyup.native.enter="search">
-    </mt-search>
-    <iframe name='frameFile' style="display: none;"></iframe>
-  </form>
+  <div class="mint-search">
+    <form action="" target="frameFile">
+      <mt-search
+        v-model="keyValue"
+        cancel-text="取消"
+        placeholder="请输入关键字"
+        @keyup.native="search">
+      </mt-search>
+      <!--<iframe name='frameFile' style="display: none;"></iframe>-->
+    </form>
+  </div>
+
 </template>
 
 <script>
@@ -20,13 +23,15 @@
     },
     methods:{
       search(){
-        console.log(this.keyValue)
-        console.log("start searching...")
+        //抛出search事件
+        this.$emit("search")
       }
     }
   }
 </script>
 
 <style scoped>
-
+  .mint-search{
+    height: 50px;
+  }
 </style>

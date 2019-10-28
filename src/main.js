@@ -24,7 +24,8 @@ import {Style, ScrollNav} from 'cube-ui'
 // Vue.use(Style)
 Vue.use(ScrollNav)
 
-
+//引入过滤器
+import './filters'
 
 /* eslint-disable no-new */
 new Vue({

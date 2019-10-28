@@ -102,8 +102,6 @@
   }
 
   .banner{
-    height: 500px;
-    background-color: #ccc;
-    /*height: calc(100% - 94px);*/
+    height: calc(100vh - 220px);
   }
 </style>

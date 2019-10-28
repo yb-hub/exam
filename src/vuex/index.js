@@ -5,6 +5,9 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {
+  userInfo:{
+    sno:15143325
+  },
   headerTitle: "",
   showModal:false,
 

@@ -51,5 +51,5 @@
 </script>
 
 <style scoped>
-  @import "../../assets/test/back/iconfont.css";
+  @import "../../assets/icon/back/iconfont.css";
 </style>

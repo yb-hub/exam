@@ -45,7 +45,7 @@ export default new Router({
     {
       path:'/search',
       name:'search',
-      component:()=>import('../components/common/Search')
+      component:()=>import('../page/search/Index')
     },
     {
       path:'/test',
