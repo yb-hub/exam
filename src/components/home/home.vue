@@ -1,5 +1,5 @@
 <template>
-<div id="home">
+  <div id="home">
     <Header headerTitle="首页">
       <!--<template #left>-->
       <!--<span @click="leftClick" class="iconfont icon-Search"></span>-->
@@ -22,28 +22,30 @@
         <List></List>
       </div>
     </Scroll>
-</div>
+    <Footer></Footer>
+  </div>
 </template>
 
 <script>
   import Header from '../common/Header'
+  import Footer from '../common/Footer'
   import List from './List'
   // import BScroll from 'better-scroll'
   import Scroll from "../common/Scroll"
 
   export default {
     name: "home",
-    data(){
-      return{
-      }
+    data() {
+      return {}
     },
-    components:{
+    components: {
       Header,
+      Footer,
       List,
       Scroll,
     },
-    methods:{
-      leftClick(){
+    methods: {
+      leftClick() {
         this.$router.push('/search')
       },
     },
@@ -56,17 +58,19 @@
 
 <style scoped>
   @import "../../assets/search/iconfont.css";
-  #home{
+
+  #home {
     /*padding-top:44px;*/
     /*position: relative;*/
     height: 100vh;
   }
-  .wrapper{
+
+  .wrapper {
     position: absolute;
-    top:44px;
+    top: 44px;
     bottom: 55px;
     left: 0px;
     right: 0px;
-    overflow:hidden;
+    overflow: hidden;
   }
 </style>

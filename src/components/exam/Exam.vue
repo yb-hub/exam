@@ -1,15 +1,14 @@
 <template>
   <div id="exam">
-    <!--<Header headerTitle="考试"></Header>-->
-    <!--<Scroll class="wrapper">-->
-    <router-view></router-view>
-      <!--<ExamList></ExamList>-->
-    <!--</Scroll>-->
+    <Header headerTitle="考试"></Header>
+    <router-view class="wrapper"></router-view>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
   import Header from '../common/Header'
+  import Footer from '../common/Footer'
   import Scroll from '../common/Scroll'
 
   import ExamList from './ExamList'
@@ -20,6 +19,7 @@
     },
     components: {
       Header,
+      Footer,
       Scroll,
 
       ExamList,
@@ -32,13 +32,9 @@
   .wrapper {
     position: absolute;
     top: 44px;
-    bottom: 55px;
+    bottom: 50px;
     left: 0px;
     right: 0px;
     overflow: hidden;
-  }
-
-  #exam{
-    padding-top: 44px;
   }
 </style>

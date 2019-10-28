@@ -16,11 +16,13 @@
     <Scroll class="wrapper">
       <TestDetail></TestDetail>
     </Scroll>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
   import Header from "../common/Header"
+  import Footer from "../common/Footer"
   import Scroll from "../common/Scroll"
 
   import TestDetail from "./TestDetail"
@@ -29,6 +31,7 @@
     name: "Test",
     components: {
       Header,
+      Footer,
       Scroll,
       TestDetail,
     },
@@ -85,13 +88,13 @@
   @import "../../assets/test/back/iconfont.css";
   @import "../../assets/list/editor/iconfont.css";
 
-  #test {
-    padding-top: 44px;
-  }
+  /*#test {*/
+    /*height:100vh;*/
+  /*}*/
   .wrapper{
     position: absolute;
     top:44px;
-    bottom: 55px;
+    bottom: 50px;
     left: 0px;
     right: 0px;
     overflow:hidden;

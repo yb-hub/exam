@@ -1,6 +1,5 @@
 <template>
   <div id="ExamList">
-    <Header headerTitle="考试"></Header>
     <cube-scroll-nav @change="changeHandler" class="exam-list" ref="scroll">
       <cube-scroll-nav-panel
         v-for="(examItem,index) in examList" :key="index" :label="examItem.category">
@@ -140,7 +139,14 @@
 </script>
 
 <style scoped>
-  .exam-list{
-  height:calc(100vh - 100px)
-  }
+  /*.exam-list{*/
+    /*!*height: 400px;*!*/
+    /*!*height:calc(100vh - 150px);*!*/
+    /*position: absolute;*/
+    /*left:0;*/
+    /*right:0;*/
+    /*top:44px;*/
+    /*bottom: 50px;*/
+    /*overflow: hidden;*/
+  /*}*/
 </style>

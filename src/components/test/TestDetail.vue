@@ -96,12 +96,14 @@
   @import "../../assets/test/options/A/iconfont.css";
   @import "../../assets/test/options/B/iconfont.css";
   @import "../../assets/test/options/C/iconfont.css";
-  
+
   .active{
     background-color: #ccc;
   }
-  
+
   .banner{
-    height: calc(100vh - 100px);
+    height: 500px;
+    background-color: #ccc;
+    /*height: calc(100% - 94px);*/
   }
 </style>
