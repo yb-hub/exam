@@ -22,23 +22,23 @@ export default new Router({
       component: () => import('../page/profile/Index'),
     },
     {
-      path: '/exam',
-      name: 'exam',
-      component: () => import('../components/exam/exam'),
+      path: '/paper',
+      name: 'paper',
+      component: () => import('../page/paper/Index'),
       children:[
         {
           path:'',
-          component:()=>import('../components/exam/ExamList')
+          component:()=>import('../page/paper/PaperList')
         },
         {
-          path:'ExamIntro',
-          name:'examIntro',
-          component:()=>import('../components/exam/ExamIntro')
+          path:'PaperIntroduce',
+          name:'paperIntroduce',
+          component:()=>import('../page/paper/PaperIntroduce')
         },
         {
-          path:'ExamDetail',
-          name:"examDetail",
-          component:()=>import('../components/exam/ExamDetail')
+          path:'PaperDetail',
+          name:"paperDetail",
+          component:()=>import('../page/paper/PaperDetail')
         }
       ]
     },

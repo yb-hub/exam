@@ -21,13 +21,13 @@
 </template>
 
 <script>
-  import Header from '../common/Header'
-  import Modal from '../common/Modal'
+  import Header from '../../components/common/Header'
+  import Modal from '../../components/common/Modal'
 
-  import Question from '../../page/paper/Question'
+  import Question from './Question'
 
   export default {
-    name: "ExamDetail",
+    name: "PaperDetail",
     components:{
       Header,
       Modal,
@@ -68,16 +68,16 @@
         this.currentQuestion -=1;
       },
       next(){
-      this.currentQuestion +=1;
+        this.currentQuestion +=1;
       },
       checkQuestionDetail(){
-       this.$store.dispatch('openModal')
+        this.$store.dispatch('openModal')
       }
     }
   }
 </script>
 
 <style scoped>
-@import "../../assets/timer/countDown/iconfont.css";
-@import "../../assets/check/iconfont.css";
+  @import "../../assets/timer/countDown/iconfont.css";
+  @import "../../assets/check/iconfont.css";
 </style>

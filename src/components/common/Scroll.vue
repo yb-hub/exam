@@ -1,8 +1,9 @@
 <template>
     <div ref="wrapper">
-      <div class="content">
-        <slot></slot>
-      </div>
+      <!--<div class="content">-->
+        <!--<slot></slot>-->
+      <!--</div>-->
+      <slot></slot>
     </div>
 </template>
 

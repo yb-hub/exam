@@ -14,7 +14,7 @@
       <span>测验</span>
     </div>
 
-    <div class="guide_item" @click="goto('/exam')" :class="{on: isCurrent('/exam')}">
+    <div class="guide_item" @click="goto('/paper')" :class="{on: isCurrent('/paper')}">
       <span class="item_icon">
         <i class="iconfont iconsousuo"></i>
       </span>

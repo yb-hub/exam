@@ -16,7 +16,6 @@
       <router-link :to="userInfo.sno ? '/profile/info' : '/login'" class="profile-link">
         <div class="profile_image">
           <img :src="userInfo.stuImgSrc ? userInfo.stuImgSrc : require('../../assets/images/profile.jpg')" alt="学生头像">
-          <!--<img src="../../common/imgs/profile.jpg" alt="头像" v-else>-->
         </div>
 
         <div class="user-info" style="color: black">
@@ -25,7 +24,7 @@
             <span class="user-icon">
               <i class="iconfont iconshouji"></i>
             </span>
-            <span class="icon-mobile-number">{{userInfo.stuPhone || '暂无绑定手机号'}}</span>
+            <span  class="icon-mobile-number">{{userInfo.stuPhone || '暂无绑定手机号'}}</span>
           </p>
         </div>
         <span class="arrow">
@@ -179,14 +178,14 @@
     .profile-number
       margin-top 45.5px
       margin-bottom 20px
-      height 80px
+      height 100px
+      background lightslategrey
       &:active
         opacity 0.8
       .profile-link
         clearFix()
         position relative
         display block
-        background lightslategrey
         padding 20px 10px
         .profile_image
           float left
@@ -216,8 +215,8 @@
               color #fff
         .arrow
           position absolute
-          right 15px
-          top 40%
+          right 0px
+          top 80%
           .iconjiantou
             color #fff
             font-size 30px
