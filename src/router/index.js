@@ -17,9 +17,9 @@ export default new Router({
       component: () => import('../components/home/home'),
     },
     {
-      path: '/wode',
-      name: 'wode',
-      component: () => import('../components/wode/wode'),
+      path: '/profile',
+      name: 'profile',
+      component: () => import('../page/profile/Index'),
     },
     {
       path: '/exam',

@@ -7,7 +7,7 @@ import store from './vuex'
 import router from './router'
 //引入mint-ui组件
 import 'mint-ui/lib/style.css'
-import {Field,Button,Header,Tabbar,TabItem,Swipe,SwipeItem,Search} from 'mint-ui'
+import {Field,Button,Header,Tabbar,TabItem,Swipe,SwipeItem,Search,Badge} from 'mint-ui'
 
 Vue.config.productionTip = false
 Vue.component(Field.name,Field)
@@ -18,6 +18,7 @@ Vue.component(TabItem.name,TabItem)
 Vue.component(Swipe.name,Swipe)
 Vue.component(SwipeItem.name,SwipeItem)
 Vue.component(Search.name,Search)
+Vue.component(Badge.name,Badge)
 
 //引入cube-ui
 import {Style, ScrollNav} from 'cube-ui'

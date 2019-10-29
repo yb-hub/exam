@@ -8,12 +8,15 @@ const state = {
   userInfo:{
     sno:15143325
   },
-  headerTitle: "",
-  showModal:false,
+  unreadMsgCount: 0,//用户我的页面未读消息条数
+  // headerTitle: "",
+  // showModal:false,
 
 }
 
-const getter = {}
+const getter = {
+  unreadMsgCount: state => state.unreadMsgCount
+}
 
 const mutations = {
   changeHeaderTitle(state, headerTitle) {
