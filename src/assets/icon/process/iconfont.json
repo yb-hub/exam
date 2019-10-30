@@ -1,0 +1,16 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "10109105",
+      "name": "进度svg",
+      "font_class": "jindusvg",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    }
+  ]
+}

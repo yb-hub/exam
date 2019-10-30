@@ -6,25 +6,6 @@
         <div class="modal-header">
           <slot name="header"></slot>
         </div>
-        <!-- 内容部分 -->
-        <div class="modal-body">
-          <span>起床</span>
-
-        </div>
-
-        <div class="modal-body">
-          <span>吃饭</span>
-        </div>
-
-        <div class="modal-body">
-          <span>集合</span>
-
-        </div>
-
-        <div class="modal-body">
-          <span>加工车间</span>
-
-        </div>
          底部
         <div class="modal-footer">
           <mt-button type="danger" @click="cancel">取消</mt-button>

@@ -24,11 +24,14 @@ Vue.component(Badge.name,Badge)
 import {Style, ScrollNav} from 'cube-ui'
 // Vue.use(Style)
 Vue.use(ScrollNav)
+//
 
-//全局引入ElementUI
+// 全局引入ElementUI
 // import ElementUI from 'element-ui';
 // import 'element-ui/lib/theme-chalk/index.css';
 // Vue.use(ElementUI);
+import {Loading } from 'element-ui'
+Vue.use(Loading )
 
 //引入过滤器
 import './filters'

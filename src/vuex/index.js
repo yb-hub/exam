@@ -9,8 +9,7 @@ const state = {
     sno:15143325
   },
   unreadMsgCount: 0,//用户我的页面未读消息条数
-  // headerTitle: "",
-  // showModal:false,
+  isPaperCardShow:false,
 
 }
 
@@ -19,28 +18,20 @@ const getter = {
 }
 
 const mutations = {
-  changeHeaderTitle(state, headerTitle) {
-    console.log("mutations =====" + headerTitle)
-    state.headerTitle = headerTitle
+  closePaperCard(state){
+    state.isPaperCardShow = false;
   },
-  closeModal(state){
-    state.showModal = false;
-  },
-  openModal(state){
-    state.showModal = true;
+  openPaperCard(state){
+    state.isPaperCardShow = true;
   }
 }
 
 const actions = {
-  changeHeaderTitle(context, headerTitle) {
-    console.log("actions =====" + headerTitle)
-    context.commit("changeHeaderTitle", headerTitle)
+  closePaperCard(context){
+    context.commit("closePaperCard")
   },
-  closeModal(context){
-    context.commit("closeModal")
-  },
-  openModal(context){
-    context.commit("openModal")
+  openPaperCard(context){
+    context.commit("openPaperCard")
   }
 }
 

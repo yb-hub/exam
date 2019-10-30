@@ -1,5 +1,9 @@
 <template>
-  <div id="paper-introduce">
+  <div id="paper-introduce"
+       v-loading="loading"
+       element-loading-text="拼命加载中"
+       element-loading-spinner="el-icon-loading"
+       element-loading-background="rgba(0, 0, 0, 0.8)">
     <Header headerTitle="考试须知">
       <div slot="left">
         <span class="iconfont icon-back" @click="back"></span>
@@ -99,7 +103,8 @@
 
     <!--点击试卷开始按钮-->
     <div class="paper_start">
-      <mt-button type="primary" :class="{'complete_flag':currentPaperStatus == 1 ? true : false}" @click.native="toStartPaper" :disabled="currentPaperStatus == 1 ? true : false">
+      <mt-button type="primary" :class="{'complete_flag':currentPaperStatus == 1 ? true : false}"
+                 @click.native="toStartPaper" :disabled="currentPaperStatus == 1 ? true : false">
         {{currentPaperStatus == 1 ? '已完成' : '开始考试'}}
       </mt-button>
     </div>
@@ -108,30 +113,31 @@
 
 <script>
   import Header from '../../components/common/Header'
+
   export default {
     name: "PaperIntroduce",
-    components:{
+    components: {
       Header,
     },
     data() {
       return {
-       paperInfo:"",
-       currentPaperStatus:0,
+        paperInfo: "",
+        currentPaperStatus: 0,
+        loading: true
       }
     },
-    created(){
+    created() {
       this.getRouterData()
-      this.loading = true
       // this.getPaperInfoByPaperId();
       // this.getCurrentPaperStatus();
-      this.paperInfo={
-        paperName:"Java期末考试",
-        paperType:1,
-        paperCreateTime:"2019-10-1",
-        questionCount:60,
-        limitTime:60,
-        totalScore:100,
-        participateNum:10,
+      this.paperInfo = {
+        paperName: "Java期末考试",
+        paperType: 1,
+        paperCreateTime: "2019-10-1",
+        questionCount: 60,
+        limitTime: 60,
+        totalScore: 100,
+        participateNum: 10,
       }
       setTimeout(() => {
         this.loading = false
@@ -142,14 +148,14 @@
         this.paperId = this.$route.query.paperId;
         this.paperName = this.$route.query.paperName;
       },
-      back(){
+      back() {
         this.$router.back(-1)
       },
-      toStartPaper(paperId){
+      toStartPaper(paperId) {
         this.$router.push({
-          name:'paperDetail',
-          query:{
-            paperId:paperId
+          name: 'paperDetail',
+          query: {
+            paperId: paperId
           }
         })
       }
@@ -160,58 +166,59 @@
 <style lang="stylus" scoped>
   @import "../../assets/icon/back/iconfont.css";
 
-    .paper_detail
-      width 80%
-      margin 0 auto
-      margin-bottom 20px
-      margin-top 20px
-      padding 20px
-      background-color #fff
-      background-image url("../../assets/images/paper-center-top.png"), url("../../assets/images/paper-right-top.png"), url("../../assets/images/corner-mark-must.png")
-      background-size 50px 18px, 40px 40px, 40px 40px
-      background-repeat no-repeat, no-repeat, no-repeat
-      background-position 50% 2.5%, 100% 0%, 0% 0%
-      border-radius 5px
-      box-shadow 0 0 3px #ccc
-      .paper_title
-        height 50px
-        line-height 50px
-        font-size 16px
-        display flex
-        justify-content center
-        border-bottom 2px solid rgba(153, 153, 153, .3)
-      .paper_type
-        height 30px
-        line-height 30px
-        font-size 14px
-        color #999
-        margin-top 10px
-      .paper_create_time, .paper_duration, .paper_total_score, .paper_pass, .paper_participate, .paper_total_que
-        height 30px
-        line-height 30px
-        font-size 14px
-        color #999
-      .paper_difficulty
-        height 30px
-        line-height 30px
-        font-size 14px
-        color #999
-        .star
-          display inline-block
-          float none
-      .paper_que_type, .paper_attention
-        line-height 20px
-        font-size 14px
-        color #999
-        margin-top 8px
-      .paper_attention
-        margin-top 10px
-    .paper_start
-      width 91%
-      margin 0 auto
-      .mint-button
-        width 100%
-        background-color #4ab8a1
-      .complete_flag
-        background-color #4ab8a1
+  .paper_detail
+    width 80%
+    margin 0 auto
+    margin-bottom 20px
+    margin-top 20px
+    padding 20px
+    background-color #fff
+    background-image url("../../assets/images/paper-center-top.png") , url("../../assets/images/paper-right-top.png") , url("../../assets/images/corner-mark-must.png")
+    background-size 50px 18px, 40px 40px, 40px 40px
+    background-repeat no-repeat, no-repeat, no-repeat
+    background-position 50% 2.5%, 100% 0%, 0% 0%
+    border-radius 5px
+    box-shadow 0 0 3px #ccc
+    .paper_title
+      height 50px
+      line-height 50px
+      font-size 16px
+      display flex
+      justify-content center
+      border-bottom 2px solid rgba(153, 153, 153, .3)
+    .paper_type
+      height 30px
+      line-height 30px
+      font-size 14px
+      color #999
+      margin-top 10px
+    .paper_create_time, .paper_duration, .paper_total_score, .paper_pass, .paper_participate, .paper_total_que
+      height 30px
+      line-height 30px
+      font-size 14px
+      color #999
+    .paper_difficulty
+      height 30px
+      line-height 30px
+      font-size 14px
+      color #999
+      .star
+        display inline-block
+        float none
+    .paper_que_type, .paper_attention
+      line-height 20px
+      font-size 14px
+      color #999
+      margin-top 8px
+    .paper_attention
+      margin-top 10px
+
+  .paper_start
+    width 91%
+    margin 0 auto
+    .mint-button
+      width 100%
+      background-color #4ab8a1
+    .complete_flag
+      background-color #4ab8a1
 </style>

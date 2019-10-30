@@ -1,83 +1,176 @@
 <template>
-  <div id="exam-detail">
-    <Header header-title="好好考试，别偷看">
-      <div slot="left" style="width:90px">
-        <div><span class="iconfont icon-loudou" style="color:red"></span>时间：{{limitTime}}</div>
+  <div id="paper-detail">
+    <section v-if="!this.$store.state.isPaperCardShow">
+      <Header header-title="好好考试，别偷看">
+        <div slot="left">
+          <span class="iconfont icon-back"></span>
+        </div>
+        <div slot="right" @click="openPaperCard">
+          <span class="iconfont icon-datiqia"></span>
+        </div>
+      </Header>
+      <section class="tips">
+        <span class="iconfont icon-jishimiaobiao limit-time">时间：{{limitTime}}</span>
+        <span class="process iconfont icon-jindusvg">进度：{{currentQuestion}}/{{questions.length}}</span>
+      </section>
+      <section class="question">
+        <Question :question="questions[currentQuestion]">
+        </Question>
+      </section>
+      <div class="btn">
+        <mt-button v-if="currentQuestion!=0" @click="before">上一题</mt-button>
+        <!--<mt-button>标注</mt-button>-->
+        <mt-button v-if="currentQuestion!=questions.length-1" @click="next">下一题</mt-button>
       </div>
-      <div slot="right"  @click="checkQuestionDetail">
-        <span class="iconfont icon-chakan"></span>
-      </div>
-    </Header>
-
-    <Question :question="questions[currentQuestion]" style="height: 200px">
-    </Question>
-    <button v-if="currentQuestion!=0" @click="before">上一题</button>
-    <button>标注</button>
-    <button v-if="currentQuestion!=questions.length-1" @click="next">下一题</button>
-
-    <Modal v-if="this.$store.state.showModal">
-    </Modal>
+    </section>
+    <PaperCard v-if="this.$store.state.isPaperCardShow" :singleNum="100" :timer="time">
+    </PaperCard>
   </div>
 </template>
 
 <script>
   import Header from '../../components/common/Header'
-  import Modal from '../../components/common/Modal'
+  import PaperCard from './PaperCard'
 
   import Question from './Question'
 
   export default {
     name: "PaperDetail",
-    components:{
+    components: {
       Header,
-      Modal,
       Question,
+      PaperCard,
     },
-    data(){
+    data() {
       return {
-        showModal:false,
-        currentQuestion:0,
-        questions:[
+        showModal: false,
+        currentQuestion: 0,
+        questions: [
           {
-            id:1,
-            content:"这是第一题"
+            id: 1,
+            content: "这是第一题",
+            options:[
+              {
+                key:"A",
+                content:"this is afb 这是第一题 fdf 这是第一题 fd 这是第一题 this is afb 这是第一题 fdffadsf这 是第一题 fd 这是第一题"
+              },
+              {
+                key: "B",
+                content: "this is b"
+              },
+              {
+                key:"C",
+                content:"this is c"
+              },
+              {
+                key:"D",
+                content:"this is d"
+              }
+            ]
           },
           {
-            id:2,
-            content:"这是第2题"
+            id: 2,
+            content: "这是第2题",
+            options:[
+              {
+                key:"A",
+                content:"this is aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbb"
+              },
+              {
+                key: "B",
+                content: "this is b"
+              }
+            ]
           },
           {
-            id:3,
-            content:"这是第3题"
-          },{
-            id:4,
-            content:"这是第4题"
+            id: 3,
+            content: "这是第3题",
+            options:[
+              {
+                key:"A",
+                content:"this is a"
+              },
+              {
+                key: "B",
+                content: "this is b"
+              },
+              {
+                key:"C",
+                content:"this is c"
+              },
+              {
+                key:"D",
+                content:"this is d"
+              }
+            ]
+          }, {
+            id: 4,
+            content: "这是第4题",
+            options:[
+              {
+                key:"A",
+                content:"this is a"
+              },
+              {
+                key: "B",
+                content: "this is b"
+              },
+              {
+                key:"C",
+                content:"this is c"
+              },
+            ]
           },
         ],
-        limitTime:120
+        limitTime: 120,
+        time:"",
       }
     },
-    created(){
-      this.time = setInterval(this.timer,1000*60)
+    created() {
+      this.time = setInterval(this.timer, 1000 * 60)
     },
-    methods:{
-      timer(){
-        this.limitTime -=1;
+    methods: {
+      timer() {
+        this.limitTime -= 1;
       },
-      before(){
-        this.currentQuestion -=1;
+      before() {
+        this.currentQuestion -= 1;
       },
-      next(){
-        this.currentQuestion +=1;
+      next() {
+        this.currentQuestion += 1;
       },
-      checkQuestionDetail(){
-        this.$store.dispatch('openModal')
+      openPaperCard() {
+        this.$store.dispatch('openPaperCard')
       }
     }
   }
 </script>
 
-<style scoped>
-  @import "../../assets/timer/countDown/iconfont.css";
-  @import "../../assets/check/iconfont.css";
+<style lang="stylus" scoped>
+  @import "../../assets/icon/back/iconfont.css"
+  @import "../../assets/icon/anwser_card/iconfont.css"
+  @import "../../assets/icon/timer/iconfont.css"
+  @import "../../assets/icon/process/iconfont.css"
+
+  .btn
+    position fixed
+    bottom 80px
+    left 0px
+    right 0px
+
+  .tips
+    display block
+    .limit-time
+      float:left
+      margin:8px
+    .process
+      float:right
+      margin:8px
+
+  .question
+    clear both
+
+
+
+
 </style>
