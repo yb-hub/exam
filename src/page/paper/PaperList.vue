@@ -110,7 +110,7 @@
         console.log("backtop");
         //根据ref获取cube-scroll组件，修改其active属性,并调用其内部scrollTo方法
         console.log(this.$refs.scroll);
-        this.$refs.scroll.active = this.examList[0].category
+        this.$refs.scroll.active = this.paperList[0].category
         this.$refs.scroll.scrollTo(0,0)
       }
     },

@@ -23,7 +23,7 @@
         <mt-button v-if="currentQuestion!=questions.length-1" @click="next">下一题</mt-button>
       </div>
     </section>
-    <PaperCard v-if="this.$store.state.isPaperCardShow" :singleNum="100" :timer="time">
+    <PaperCard v-if="this.$store.state.isPaperCardShow" :singleNum="106" :timer="time">
     </PaperCard>
   </div>
 </template>

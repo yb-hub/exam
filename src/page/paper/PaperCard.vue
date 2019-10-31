@@ -79,6 +79,13 @@
     justify-content: space-between;
   }
 
+  /*添加伪元素，解决最后一排数量不够两端分布的情况*/
+
+  .row:after{
+    content:'';
+    flex:auto;
+  }
+
   .item {
     width: 30px;
     height: 30px;

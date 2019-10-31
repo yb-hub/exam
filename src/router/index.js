@@ -50,7 +50,7 @@ export default new Router({
     {
       path:'/test',
       name:'test',
-      component:()=>import('../components/test/Test')
+      component:()=>import('../page/test/Index')
     },
 
   ]

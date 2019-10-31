@@ -11,11 +11,31 @@
  Target Server Version : 50527
  File Encoding         : 65001
 
- Date: 27/10/2019 19:45:24
+ Date: 31/10/2019 11:53:23
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for course
+-- ----------------------------
+DROP TABLE IF EXISTS `course`;
+CREATE TABLE `course`  (
+  `id` int(11) NOT NULL COMMENT '课程id',
+  `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '课程名称',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for major
+-- ----------------------------
+DROP TABLE IF EXISTS `major`;
+CREATE TABLE `major`  (
+  `id` int(11) NOT NULL COMMENT '专业id',
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '专业名称',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for paper
@@ -29,7 +49,10 @@ CREATE TABLE `paper`  (
   `course_id` int(10) NULL DEFAULT NULL COMMENT '考试科目id',
   `grade` int(1) NULL DEFAULT NULL COMMENT '考试年级',
   `limit_time` int(3) NULL DEFAULT NULL COMMENT '考试时间（单位为分钟）',
+  `question_desciption` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '题型描述（json字符串）',
   `total_score` int(3) NULL DEFAULT NULL COMMENT '总分',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
@@ -51,6 +74,36 @@ CREATE TABLE `question`  (
   `analysis` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '题目解析',
   `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for student
+-- ----------------------------
+DROP TABLE IF EXISTS `student`;
+CREATE TABLE `student`  (
+  `id` int(11) NOT NULL COMMENT '学生id',
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '学生姓名',
+  `student_id` int(10) NULL DEFAULT NULL COMMENT '学生学号',
+  `class_id` int(4) NULL DEFAULT NULL COMMENT '班级id',
+  `major_id` int(4) NULL DEFAULT NULL COMMENT '专业id',
+  `phone_number` int(11) NULL DEFAULT NULL COMMENT '电话号码',
+  `email` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '电子邮箱',
+  `sex` int(1) NULL DEFAULT NULL COMMENT '性别（0为女，1为男）',
+  `password` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '密码（默认为123456）',
+  `is_delete` int(1) NULL DEFAULT NULL COMMENT '是否逻辑删除（0为否 1为是）',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for subject
+-- ----------------------------
+DROP TABLE IF EXISTS `subject`;
+CREATE TABLE `subject`  (
+  `id` int(11) NOT NULL COMMENT '科目id',
+  `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '科目名称',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
